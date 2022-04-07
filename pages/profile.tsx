@@ -1,18 +1,11 @@
-import Link from "next/link";
+import MainContainer from "@src/components/MainContainer";
 
 const Profile = () => {
   return (
-    <div>
-      Profile
-      <br />
-      <Link href={"/login"}>
-        <a>Login</a>
-      </Link>
-      <br />
-      <Link href={"/register"}>
-        <a>Register</a>
-      </Link>
-    </div>
+    <>
+      <h1>Profile</h1>
+      <MainContainer></MainContainer>
+    </>
   );
 };
 

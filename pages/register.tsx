@@ -1,18 +1,11 @@
-import Link from "next/link";
+import MainContainer from "@src/components/MainContainer";
 
 const Register = () => {
   return (
-    <div>
-      Register
-      <br />
-      <Link href={"/login"}>
-        <a>Login</a>
-      </Link>
-      <br />
-      <Link href={"/profile"}>
-        <a>Profile</a>
-      </Link>
-    </div>
+    <>
+      <h1>Register</h1>
+      <MainContainer></MainContainer>
+    </>
   );
 };
 

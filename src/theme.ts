@@ -7,10 +7,10 @@ const theme = createTheme({
     keys: ["xs", "sm", "md", "lg", "xl"],
     values: {
       xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920
+      sm: 320,
+      md: 768,
+      lg: 1152,
+      xl: 1440
     },
     unit: "px"
   },
@@ -49,6 +49,7 @@ const theme = createTheme({
         }
       }
     },
+
     MuiPagination: {
       defaultProps: {
         variant: "outlined",
@@ -89,7 +90,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontWeight: 600,
-          textTransform: "none",
+
           minWidth: 0,
           minHeight: 0
         }
@@ -110,6 +111,16 @@ const theme = createTheme({
         paper: {
           borderRadius: 8
         }
+      }
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: "#483afe"
+        }
+      },
+      defaultProps: {
+        color: "#483afe"
       }
     }
   },
@@ -185,6 +196,7 @@ const theme = createTheme({
     text: {
       primary: "#2B3445",
       secondary: "#373F50",
+      light: "#fff",
       disabled: "#DAE1E7"
     },
     divider: "#F3F5F9",
