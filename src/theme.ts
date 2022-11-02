@@ -31,8 +31,7 @@ const theme = createTheme({
           color: "#362ad4"
         },
         button: {
-          fontFamily:
-            "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+          fontFamily: `'Poppins', sans-serif`,
           fontSize: 14
         },
         ".MuiRating-sizeSmall": {
@@ -274,34 +273,29 @@ const theme = createTheme({
   },
   typography: {
     fontSize: 14,
-    fontFamily:
-      "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+    fontFamily: `'Poppins', sans-serif`,
     htmlFontSize: 16,
     body1: {
       fontSize: 14,
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       lineHeight: 1.5
     },
     body2: {
       fontSize: 16,
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       lineHeight: 1.43
     },
     body3: {
       fontSize: 18,
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       lineHeight: 1.43
     },
     body4: {
       fontSize: 20,
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       lineHeight: 1.43
     },
@@ -310,8 +304,7 @@ const theme = createTheme({
     fontWeightMedium: 500,
     fontWeightBold: 700,
     h1: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 300,
       fontSize: "3.5rem",
       lineHeight: 1.167,
@@ -326,8 +319,7 @@ const theme = createTheme({
       }
     },
     h2: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 300,
       fontSize: "2.375rem",
       lineHeight: 1.2,
@@ -342,8 +334,7 @@ const theme = createTheme({
       }
     },
     h3: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       fontSize: "2rem",
       lineHeight: 1.167,
@@ -358,8 +349,7 @@ const theme = createTheme({
       }
     },
     h4: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       fontSize: "1.5625rem",
       lineHeight: 1.235,
@@ -374,8 +364,7 @@ const theme = createTheme({
       }
     },
     h5: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       fontSize: "1.25rem",
       lineHeight: 1.334,
@@ -390,8 +379,7 @@ const theme = createTheme({
       }
     },
     h6: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 500,
       fontSize: "1.125rem",
       lineHeight: 1.6,
@@ -406,37 +394,32 @@ const theme = createTheme({
       }
     },
     subtitle1: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       fontSize: "1rem",
       lineHeight: 1.75
     },
     subtitle2: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 500,
       fontSize: "0.875rem",
       lineHeight: 1.57
     },
     button: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 500,
       fontSize: "0.875rem",
       lineHeight: 1.75,
       textTransform: "uppercase"
     },
     caption: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       fontSize: "0.75rem",
       lineHeight: 1.66
     },
     overline: {
-      fontFamily:
-        "Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+      fontFamily: `'Poppins', sans-serif`,
       fontWeight: 400,
       fontSize: "0.75rem",
       lineHeight: 2.66,
