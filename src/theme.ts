@@ -140,7 +140,7 @@ const theme = createTheme({
       "700": "#24b366",
       "800": "#1f9957",
       "900": "#1a8049",
-      main: "#34FF91",
+      main: "#7758F4",
       dark: "#2acc74",
       light: "#e6f5ff",
       contrastText: "#000"
@@ -305,7 +305,7 @@ const theme = createTheme({
     fontWeightBold: 700,
     h1: {
       fontFamily: `'Poppins', sans-serif`,
-      fontWeight: 300,
+      fontWeight: 600,
       fontSize: "3.5rem",
       lineHeight: 1.167,
       "@media (min-width:600px)": {
@@ -320,7 +320,7 @@ const theme = createTheme({
     },
     h2: {
       fontFamily: `'Poppins', sans-serif`,
-      fontWeight: 300,
+      fontWeight: 500,
       fontSize: "2.375rem",
       lineHeight: 1.2,
       "@media (min-width:600px)": {
