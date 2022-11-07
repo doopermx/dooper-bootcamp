@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import {
@@ -10,9 +11,13 @@ import {
   Typography
 } from "@mui/material";
 
-const settings = ["My Profile", "Profile Settings", "Logout"];
+const settings = [
+  { title: "My Profile", href: "/profile" },
+  { title: "Update Profile", href: "/profile/update" },
+  { title: "Logout", href: "/" }
+];
 
-function UserOptions() {
+export default function UserOptions() {
   const router = useRouter();
 
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -23,10 +28,7 @@ function UserOptions() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    event.currentTarget.id === "Profile Settings" &&
-      router.push("/profile/update");
-    event.currentTarget.id === "My Profile" && router.push("/profile");
+  const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
@@ -53,17 +55,13 @@ function UserOptions() {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem
-            key={setting}
-            id={setting}
-            onClick={(e) => handleCloseUserMenu(e)}
-          >
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
+          <Link href={setting.href} key={setting.title}>
+            <MenuItem id={setting.title} onClick={handleCloseUserMenu}>
+              <Typography textAlign="center">{setting.title}</Typography>
+            </MenuItem>
+          </Link>
         ))}
       </Menu>
     </Box>
   );
 }
-
-export default UserOptions;
