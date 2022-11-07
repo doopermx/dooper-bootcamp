@@ -15,12 +15,12 @@ export const UpdateProfileSchema = Yup.object().shape({
     .required("Enter your phone number"),
   email: Yup.string().email("Enter a valid email").required("Enter your email"),
   city: Yup.string()
-    .min(2, "Mínimo 2 caracteres")
-    .max(50, "Máximo 50 caracteres"),
+    .min(2, "2 characters minimum")
+    .max(50, "50 characters maximum"),
   state: Yup.string()
-    .min(2, "Mínimo 2 caracteres")
-    .max(50, "Máximo 50 caracteres"),
+    .min(2, "2 characters minimum")
+    .max(50, "50 characters maximum"),
   country: Yup.string()
-    .min(2, "Mínimo 2 caracteres")
-    .max(50, "Máximo 50 caracteres")
+    .min(2, "2 characters minimum")
+    .max(50, "50 characters maximum")
 });
