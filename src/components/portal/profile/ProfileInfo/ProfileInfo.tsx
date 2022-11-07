@@ -1,15 +1,37 @@
-import React from "react";
-import { Box } from "@mui/material";
-import * as Styles from "./styles";
+import { Container } from "@mui/material";
+import ProfileHeader from "./components/ProfileHeader";
+import UserInfo from "./components/UserInfo";
 
-type ProfileInfoProps = {};
+type User = {
+  name: string;
+  lastname: string;
+  city: string;
+  state: string;
+  country: string;
+  email: string;
+  phone_number: string;
+  photo_url: string;
+};
 
-function ProfileInfo({}: ProfileInfoProps) {
+const user: User = {
+  name: "John",
+  lastname: "Doe",
+  city: "Austin",
+  state: "Texas",
+  country: "United States of America",
+  email: "johndoe@test.com",
+  phone_number: "+15125553890",
+  photo_url: "http://airbnboverlast.nl/wp-content/uploads/2016/06/happy-man.jpg"
+};
+
+export default function ProfileInfo() {
   return (
-    <Styles.Element>
-      <Box>Component</Box>
-    </Styles.Element>
+    <Container disableGutters>
+      <ProfileHeader
+        fullName={`${user.name} ${user.lastname}`}
+        profilePic={`${user.photo_url}`}
+      />
+      <UserInfo user={{ ...user }} />
+    </Container>
   );
 }
-
-export default ProfileInfo;

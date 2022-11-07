@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import {
   Avatar,
@@ -12,6 +13,8 @@ import {
 const settings = ["My Profile", "Profile Settings", "Logout"];
 
 function UserOptions() {
+  const router = useRouter();
+
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -20,7 +23,10 @@ function UserOptions() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    event.currentTarget.id === "Profile Settings" &&
+      router.push("/profile/update");
+    event.currentTarget.id === "My Profile" && router.push("/profile");
     setAnchorElUser(null);
   };
 
@@ -47,7 +53,11 @@ function UserOptions() {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
+          <MenuItem
+            key={setting}
+            id={setting}
+            onClick={(e) => handleCloseUserMenu(e)}
+          >
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}

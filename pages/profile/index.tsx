@@ -1,14 +1,19 @@
-import { Typography } from "@mui/material";
+import { NextPage } from "next";
 import DocHeader from "@src/components/common/Layout/DocHeader/DocHeader";
 import PortalLayout from "@src/components/common/Layout/PortalLayout";
+import ProfileInfo from "@src/components/portal/profile/ProfileInfo";
 
-export default function Profile() {
+const Profile: NextPage = () => {
   return (
     <>
       <DocHeader title="Profile" />
       <PortalLayout>
-        <Typography variant="h1">User Info</Typography>
+        <ProfileInfo />
       </PortalLayout>
     </>
   );
-}
+};
+
+Profile.displayName = "Profile";
+
+export default Profile;
