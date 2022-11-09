@@ -12,7 +12,7 @@ import UserInfo from "./components/UserInfo";
 
 type Profiles = Database["public"]["Tables"]["profiles"]["Row"];
 
-export default function ProfileInfo({ session }: { session: Session }) {
+export default function ProfileInfo({ session }: { session: Session | null }) {
   const [loading, setLoading] = useState(true);
 
   const supabase = useSupabaseClient<Database>();
