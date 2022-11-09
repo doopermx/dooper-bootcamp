@@ -1,6 +1,6 @@
 import { Avatar, styled } from "@mui/material";
 
-export const Wrapper = styled("div")<{ bgImage: string }>`
+export const Wrapper = styled("div")<{ bgImage: string | null }>`
   height: 20vh;
   background-image: url(${(props) => props.bgImage});
   background-repeat: no-repeat;

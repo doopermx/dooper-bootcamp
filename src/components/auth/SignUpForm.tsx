@@ -1,4 +1,6 @@
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useFormik } from "formik";
+import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { Box, Button, Grid, TextField } from "@mui/material";
 import PasswordField from "@src/components/common/form/components/PasswordField";
@@ -6,6 +8,10 @@ import PhoneInput from "../common/form/components/PhoneInput";
 import { SignUpSchema } from "./validation";
 
 function SignUpForm() {
+  const supabaseClient = useSupabaseClient();
+
+  const router = useRouter();
+
   const {
     handleBlur,
     handleChange,
@@ -23,7 +29,24 @@ function SignUpForm() {
       phone_number: ""
     },
     onSubmit: (values) => {
-      console.log(values);
+      const { email, password, phone_number, lastname, name } = values;
+      async function signup() {
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              email,
+              name,
+              lastname,
+              phone_number
+            }
+          }
+        });
+        console.log(data || error);
+        !error ? router.push("/profile") : alert(error.message);
+      }
+      signup();
     },
     validationSchema: SignUpSchema,
     validateOnMount: false
@@ -31,7 +54,13 @@ function SignUpForm() {
 
   return (
     <>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(e);
+        }}
+      >
         <Grid container direction="column" spacing={1} alignItems="center">
           <Grid item width={"100%"}>
             <TextField

@@ -32,17 +32,21 @@ export default function UserInfo({ user }: Props) {
       </ListItem>
       <Divider />
 
-      <ListItem divider>
-        <ListItemAvatar>
-          <Styled.IconContainer>
-            <LocationOnRounded />
-          </Styled.IconContainer>
-        </ListItemAvatar>
-        <Styled.InsideWrapper>
-          <Typography variant="h5">Location</Typography>
-          <Typography variant="caption">{`${user.city}, ${user.state}, ${user.country}`}</Typography>
-        </Styled.InsideWrapper>
-      </ListItem>
+      {user.country && (
+        <ListItem divider>
+          <ListItemAvatar>
+            <Styled.IconContainer>
+              <LocationOnRounded />
+            </Styled.IconContainer>
+          </ListItemAvatar>
+          <Styled.InsideWrapper>
+            <Typography variant="h5">Location</Typography>
+            <Typography variant="caption">{`${user.city && user.city + ","} ${
+              user.state && user.state + ","
+            } ${user.country}`}</Typography>
+          </Styled.InsideWrapper>
+        </ListItem>
+      )}
 
       <ListItem>
         <ListItemAvatar>

@@ -1,10 +1,16 @@
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useFormik } from "formik";
+import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { Box, Button, Grid, TextField } from "@mui/material";
 import PasswordField from "../common/form/components/PasswordField";
 import { LoginSchema } from "./validation";
 
 function LoginForm() {
+  const supabaseClient = useSupabaseClient();
+
+  const router = useRouter();
+
   const { handleBlur, handleChange, handleSubmit, errors, touched, values } =
     useFormik({
       initialValues: {
@@ -12,7 +18,15 @@ function LoginForm() {
         password: ""
       },
       onSubmit: (values) => {
-        console.log(values);
+        const { email, password } = values;
+        async function register() {
+          const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email,
+            password
+          });
+          !error ? router.push("/profile") : alert(error.message);
+        }
+        register();
       },
       validationSchema: LoginSchema,
       validateOnMount: false

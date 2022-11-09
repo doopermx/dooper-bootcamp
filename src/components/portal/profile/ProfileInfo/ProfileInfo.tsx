@@ -1,37 +1,79 @@
+import {
+  Session,
+  useSupabaseClient,
+  useUser
+} from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { Container } from "@mui/material";
+import { Database } from "@src/types/supabase";
 import ProfileHeader from "./components/ProfileHeader";
 import UserInfo from "./components/UserInfo";
 
-type User = {
-  name: string;
-  lastname: string;
-  city: string;
-  state: string;
-  country: string;
-  email: string;
-  phone_number: string;
-  photo_url: string;
-};
+type Profiles = Database["public"]["Tables"]["profiles"]["Row"];
 
-const user: User = {
-  name: "John",
-  lastname: "Doe",
-  city: "Austin",
-  state: "Texas",
-  country: "United States of America",
-  email: "johndoe@test.com",
-  phone_number: "+15125553890",
-  photo_url: "http://airbnboverlast.nl/wp-content/uploads/2016/06/happy-man.jpg"
-};
+export default function ProfileInfo({ session }: { session: Session }) {
+  const [loading, setLoading] = useState(true);
 
-export default function ProfileInfo() {
+  const supabase = useSupabaseClient<Database>();
+
+  const router = useRouter();
+
+  const [currentUser, setCurrentUser] = useState<Profiles>({
+    id: "",
+    name: "",
+    lastname: "",
+    email: "",
+    phone_number: "",
+    city: "",
+    state: "",
+    country: "",
+    photo_url: ""
+  });
+
+  const user = useUser();
+  useEffect(() => {
+    session && getProfile();
+  }, [session]);
+
+  async function getProfile() {
+    try {
+      setLoading(true);
+
+      let i = 0;
+      while (i < 4) {
+        var { data, error, status } = await supabase
+          .from("profiles")
+          .select(
+            `email, phone_number, name, lastname, country, state, city, photo_url`
+          )
+          .eq("id", user ? user.id : "")
+          .single();
+
+        if (i === 3 && error && status !== 406) {
+          throw error;
+        }
+
+        if (data && user) {
+          setCurrentUser({ ...data, id: user.id });
+        }
+        i++;
+      }
+    } catch (error) {
+      alert("Error loading user data!");
+      router.push("/login");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <Container disableGutters>
       <ProfileHeader
-        fullName={`${user.name} ${user.lastname}`}
-        profilePic={`${user.photo_url}`}
+        fullName={`${currentUser.name} ${currentUser.lastname}`}
+        profilePic={currentUser.photo_url}
       />
-      <UserInfo user={{ ...user }} />
+      {currentUser.email && <UserInfo user={currentUser} />}
     </Container>
   );
 }
